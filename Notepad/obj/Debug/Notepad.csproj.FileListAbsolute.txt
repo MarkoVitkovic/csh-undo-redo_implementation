@@ -8,3 +8,6 @@ C:\Users\Korisnik\source\repos\Notepad\Notepad\obj\Debug\Notepad.csproj.CoreComp
 C:\Users\Korisnik\source\repos\Notepad\Notepad\obj\Debug\Notepad.exe
 C:\Users\Korisnik\source\repos\Notepad\Notepad\obj\Debug\Notepad.pdb
 C:\Users\Korisnik\source\repos\Notepad\Notepad\obj\Debug\Notepad.Notepad.resources
+C:\Users\Korisnik\source\repos\Notepad\Notepad\bin\Debug\Model.dll
+C:\Users\Korisnik\source\repos\Notepad\Notepad\bin\Debug\Model.pdb
+C:\Users\Korisnik\source\repos\Notepad\Notepad\obj\Debug\Notepad.csproj.CopyComplete
