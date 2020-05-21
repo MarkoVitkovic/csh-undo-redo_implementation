@@ -32,8 +32,6 @@
 			this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.newFileMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.openFileMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.saveFileMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.saveAsFileMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitFileMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.undoEditMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,8 +65,6 @@
 			this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newFileMenu,
             this.openFileMenu,
-            this.saveFileMenu,
-            this.saveAsFileMenu,
             this.exitFileMenu});
 			this.fileMenu.Name = "fileMenu";
 			this.fileMenu.Size = new System.Drawing.Size(37, 20);
@@ -88,27 +84,14 @@
 			this.openFileMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
 			this.openFileMenu.Size = new System.Drawing.Size(180, 22);
 			this.openFileMenu.Text = "Open";
-			// 
-			// saveFileMenu
-			// 
-			this.saveFileMenu.Name = "saveFileMenu";
-			this.saveFileMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.saveFileMenu.Size = new System.Drawing.Size(180, 22);
-			this.saveFileMenu.Text = "Save";
-			// 
-			// saveAsFileMenu
-			// 
-			this.saveAsFileMenu.Name = "saveAsFileMenu";
-			this.saveAsFileMenu.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.S)));
-			this.saveAsFileMenu.Size = new System.Drawing.Size(180, 22);
-			this.saveAsFileMenu.Text = "Save As";
+			this.openFileMenu.Click += new System.EventHandler(this.openFileMenu_Click);
 			// 
 			// exitFileMenu
 			// 
 			this.exitFileMenu.Name = "exitFileMenu";
 			this.exitFileMenu.Size = new System.Drawing.Size(180, 22);
 			this.exitFileMenu.Text = "Exit";
+			this.exitFileMenu.Click += new System.EventHandler(this.exitFileMenu_Click);
 			// 
 			// editMenu
 			// 
@@ -126,11 +109,12 @@
 			// 
 			this.undoEditMenu.Name = "undoEditMenu";
 			this.undoEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-			this.undoEditMenu.Size = new System.Drawing.Size(180, 22);
+			this.undoEditMenu.Size = new System.Drawing.Size(144, 22);
 			this.undoEditMenu.Text = "Undo";
 			// 
 			// cutEditMenu
 			// 
+			this.cutEditMenu.Enabled = false;
 			this.cutEditMenu.Name = "cutEditMenu";
 			this.cutEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
 			this.cutEditMenu.Size = new System.Drawing.Size(180, 22);
@@ -138,6 +122,7 @@
 			// 
 			// cipyEditMenu
 			// 
+			this.cipyEditMenu.Enabled = false;
 			this.cipyEditMenu.Name = "cipyEditMenu";
 			this.cipyEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
 			this.cipyEditMenu.Size = new System.Drawing.Size(180, 22);
@@ -145,6 +130,7 @@
 			// 
 			// pasteEditMenu
 			// 
+			this.pasteEditMenu.Enabled = false;
 			this.pasteEditMenu.Name = "pasteEditMenu";
 			this.pasteEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
 			this.pasteEditMenu.Size = new System.Drawing.Size(180, 22);
@@ -154,7 +140,7 @@
 			// 
 			this.deleteEditMenu.Name = "deleteEditMenu";
 			this.deleteEditMenu.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-			this.deleteEditMenu.Size = new System.Drawing.Size(180, 22);
+			this.deleteEditMenu.Size = new System.Drawing.Size(144, 22);
 			this.deleteEditMenu.Text = "Delete";
 			// 
 			// viewToolStripMenuItem
@@ -170,7 +156,7 @@
 			this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
 			this.viewToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.V)));
-			this.viewToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.viewToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
 			this.viewToolStripMenuItem1.Text = "View";
 			// 
 			// helpToolStripMenuItem
@@ -221,8 +207,6 @@
 		private System.Windows.Forms.ToolStripMenuItem fileMenu;
 		private System.Windows.Forms.ToolStripMenuItem newFileMenu;
 		private System.Windows.Forms.ToolStripMenuItem openFileMenu;
-		private System.Windows.Forms.ToolStripMenuItem saveFileMenu;
-		private System.Windows.Forms.ToolStripMenuItem saveAsFileMenu;
 		private System.Windows.Forms.ToolStripMenuItem exitFileMenu;
 		private System.Windows.Forms.ToolStripMenuItem editMenu;
 		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;

@@ -71,5 +71,25 @@ namespace Notepad
 			fileOperations.IsSaved = false;
 			UpdateTextBox();
 		}
+
+		private void openFileMenu_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog openFile = new OpenFileDialog();
+			openFile.Filter = "Text(*.txt) | *.txt";
+			openFile.InitialDirectory = "D:";
+			openFile.Title = "Open File";
+			if(openFile.ShowDialog() == DialogResult.OK)
+			{
+				txtArea.TextChanged -= txtArea_TextChanged;
+				txtArea.Text = fileOperations.OpenFile(openFile.FileName);
+				txtArea.TextChanged += txtArea_TextChanged;
+				UpdateTextBox();
+			}
+		}
+
+		private void exitFileMenu_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
 	}
 }
