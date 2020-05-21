@@ -44,6 +44,7 @@
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.txtArea = new System.Windows.Forms.RichTextBox();
+			this.redoEditMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -97,6 +98,7 @@
 			// 
 			this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoEditMenu,
+            this.redoEditMenu,
             this.cutEditMenu,
             this.copyEditMenu,
             this.pasteEditMenu,
@@ -109,10 +111,12 @@
 			// 
 			// undoEditMenu
 			// 
+			this.undoEditMenu.Enabled = false;
 			this.undoEditMenu.Name = "undoEditMenu";
 			this.undoEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
 			this.undoEditMenu.Size = new System.Drawing.Size(180, 22);
 			this.undoEditMenu.Text = "Undo";
+			this.undoEditMenu.Click += new System.EventHandler(this.undoEditMenu_Click);
 			// 
 			// cutEditMenu
 			// 
@@ -190,6 +194,15 @@
 			this.txtArea.Text = "";
 			this.txtArea.TextChanged += new System.EventHandler(this.txtArea_TextChanged);
 			// 
+			// redoEditMenu
+			// 
+			this.redoEditMenu.Enabled = false;
+			this.redoEditMenu.Name = "redoEditMenu";
+			this.redoEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+			this.redoEditMenu.Size = new System.Drawing.Size(180, 22);
+			this.redoEditMenu.Text = "Redo";
+			this.redoEditMenu.Click += new System.EventHandler(this.redoEditMenu_Click);
+			// 
 			// Notepad
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +238,7 @@
 		private System.Windows.Forms.ToolStripMenuItem deleteEditMenu;
 		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem redoEditMenu;
 	}
 }
 

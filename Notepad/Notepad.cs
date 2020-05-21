@@ -14,12 +14,19 @@ namespace Notepad
 	public partial class Notepad : Form
 	{
 		FileOperation fileOperations;
+		EditOperation editOperations;
+		Timer timer;
+
 		public Notepad()
 		{
 			InitializeComponent();
 			fileOperations = new FileOperation();
+			editOperations = new EditOperation();
 			fileOperations.NewFile();
 			this.Text = fileOperations.Filename;
+			timer = new Timer();
+			timer.Tick += MyTimer;
+			timer.Interval = 100;
 		}
 
 		private void newFileMenu_Click(object sender, EventArgs e)
@@ -68,11 +75,21 @@ namespace Notepad
 		private void UpdateTextBox()
 		{
 			this.Text = !fileOperations.IsSaved ? fileOperations.Filename + "*" : fileOperations.Filename;
+			undoEditMenu.Enabled = editOperations.CanUndo() ? true : false;
+			redoEditMenu.Enabled = editOperations.CanRedo() ? true : false; 
 		}
 
 		private void txtArea_TextChanged(object sender, EventArgs e)
 		{
 			fileOperations.IsSaved = false;
+			if (editOperations.TxtAreaTextChangeRequired)
+			{
+				timer.Start();
+			}
+			else
+			{
+				editOperations.TxtAreaTextChangeRequired = false;
+			}
 			UpdateTextBox();
 		}
 
@@ -131,6 +148,25 @@ namespace Notepad
 		{
 			//remove selected text, remove(start, end)
 			txtArea.Text = txtArea.Text.Remove(txtArea.SelectionStart, txtArea.SelectionLength);
+		}
+
+		private void MyTimer(object sender, EventArgs e)
+		{
+			timer.Stop();
+			editOperations.AddUndoRedo(txtArea.Text);
+			UpdateTextBox();
+		}
+
+		private void undoEditMenu_Click(object sender, EventArgs e)
+		{
+			txtArea.Text = editOperations.UndoClicked();
+			UpdateTextBox();
+		}
+
+		private void redoEditMenu_Click(object sender, EventArgs e)
+		{
+			txtArea.Text = editOperations.RedoClicked();
+			UpdateTextBox();
 		}
 	}
 }
