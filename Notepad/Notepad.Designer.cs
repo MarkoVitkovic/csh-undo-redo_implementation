@@ -36,7 +36,7 @@
 			this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.undoEditMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.cutEditMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.cipyEditMenu = new System.Windows.Forms.ToolStripMenuItem();
+			this.copyEditMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.pasteEditMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteEditMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,7 +74,7 @@
 			// 
 			this.newFileMenu.Name = "newFileMenu";
 			this.newFileMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-			this.newFileMenu.Size = new System.Drawing.Size(180, 22);
+			this.newFileMenu.Size = new System.Drawing.Size(146, 22);
 			this.newFileMenu.Text = "New";
 			this.newFileMenu.Click += new System.EventHandler(this.newFileMenu_Click);
 			// 
@@ -82,14 +82,14 @@
 			// 
 			this.openFileMenu.Name = "openFileMenu";
 			this.openFileMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-			this.openFileMenu.Size = new System.Drawing.Size(180, 22);
+			this.openFileMenu.Size = new System.Drawing.Size(146, 22);
 			this.openFileMenu.Text = "Open";
 			this.openFileMenu.Click += new System.EventHandler(this.openFileMenu_Click);
 			// 
 			// exitFileMenu
 			// 
 			this.exitFileMenu.Name = "exitFileMenu";
-			this.exitFileMenu.Size = new System.Drawing.Size(180, 22);
+			this.exitFileMenu.Size = new System.Drawing.Size(146, 22);
 			this.exitFileMenu.Text = "Exit";
 			this.exitFileMenu.Click += new System.EventHandler(this.exitFileMenu_Click);
 			// 
@@ -98,18 +98,20 @@
 			this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.undoEditMenu,
             this.cutEditMenu,
-            this.cipyEditMenu,
+            this.copyEditMenu,
             this.pasteEditMenu,
             this.deleteEditMenu});
 			this.editMenu.Name = "editMenu";
 			this.editMenu.Size = new System.Drawing.Size(39, 20);
 			this.editMenu.Text = "Edit";
+			this.editMenu.Click += new System.EventHandler(this.editMenu_Click);
+			this.editMenu.MouseEnter += new System.EventHandler(this.editMenu_MouseEnter);
 			// 
 			// undoEditMenu
 			// 
 			this.undoEditMenu.Name = "undoEditMenu";
 			this.undoEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-			this.undoEditMenu.Size = new System.Drawing.Size(144, 22);
+			this.undoEditMenu.Size = new System.Drawing.Size(180, 22);
 			this.undoEditMenu.Text = "Undo";
 			// 
 			// cutEditMenu
@@ -119,14 +121,16 @@
 			this.cutEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
 			this.cutEditMenu.Size = new System.Drawing.Size(180, 22);
 			this.cutEditMenu.Text = "Cut";
+			this.cutEditMenu.Click += new System.EventHandler(this.cutEditMenu_Click);
 			// 
-			// cipyEditMenu
+			// copyEditMenu
 			// 
-			this.cipyEditMenu.Enabled = false;
-			this.cipyEditMenu.Name = "cipyEditMenu";
-			this.cipyEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-			this.cipyEditMenu.Size = new System.Drawing.Size(180, 22);
-			this.cipyEditMenu.Text = "Copy";
+			this.copyEditMenu.Enabled = false;
+			this.copyEditMenu.Name = "copyEditMenu";
+			this.copyEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+			this.copyEditMenu.Size = new System.Drawing.Size(180, 22);
+			this.copyEditMenu.Text = "Copy";
+			this.copyEditMenu.Click += new System.EventHandler(this.copyEditMenu_Click);
 			// 
 			// pasteEditMenu
 			// 
@@ -135,13 +139,15 @@
 			this.pasteEditMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
 			this.pasteEditMenu.Size = new System.Drawing.Size(180, 22);
 			this.pasteEditMenu.Text = "Paste";
+			this.pasteEditMenu.Click += new System.EventHandler(this.pasteEditMenu_Click);
 			// 
 			// deleteEditMenu
 			// 
 			this.deleteEditMenu.Name = "deleteEditMenu";
 			this.deleteEditMenu.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-			this.deleteEditMenu.Size = new System.Drawing.Size(144, 22);
+			this.deleteEditMenu.Size = new System.Drawing.Size(180, 22);
 			this.deleteEditMenu.Text = "Delete";
+			this.deleteEditMenu.Click += new System.EventHandler(this.deleteEditMenu_Click);
 			// 
 			// viewToolStripMenuItem
 			// 
@@ -214,7 +220,7 @@
 		private System.Windows.Forms.RichTextBox txtArea;
 		private System.Windows.Forms.ToolStripMenuItem undoEditMenu;
 		private System.Windows.Forms.ToolStripMenuItem cutEditMenu;
-		private System.Windows.Forms.ToolStripMenuItem cipyEditMenu;
+		private System.Windows.Forms.ToolStripMenuItem copyEditMenu;
 		private System.Windows.Forms.ToolStripMenuItem pasteEditMenu;
 		private System.Windows.Forms.ToolStripMenuItem deleteEditMenu;
 		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
