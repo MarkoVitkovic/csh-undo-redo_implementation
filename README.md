@@ -41,8 +41,8 @@ To learn C#, check out the [C# docs](https://docs.microsoft.com/en-us/dotnet/csh
 
 ## Code Examples
 Code:</br>
-![](https://github.com/MarkoVitkovic/csh-undo-redo_implementation/blob/master/edit.jpg)
-![](https://github.com/MarkoVitkovic/csh-undo-redo_implementation/blob/master/undoredo.jpg)
+![](https://github.com/MarkoVitkovic/csh-undo-redo_implementation/blob/master/edit.png)
+![](https://github.com/MarkoVitkovic/csh-undo-redo_implementation/blob/master/undoredo.png)
 
 
 
