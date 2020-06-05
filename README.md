@@ -1,5 +1,5 @@
-# Size add or deduct
-> Program that can add or deduct size. 
+# Undo/Redo implementation
+> Undo/redo implementation.. 
 
 ## Table of contents
 * [General info](#general-info)
@@ -12,11 +12,11 @@
 * [Contact](#contact)
 
 ## General info
-Program is made in c#. I am so proud of this project as this is one of my first and hardest by then projects. So in this project you adding or deducting anz type of size (mm,cm,m,km) and as result you get one parsed size. Example, user input 1km + 30m and output is 1.03km or if he wants in m or cm he can choose. Feel free to clone or download this repo.
+Undo/redo inplementation in notepad.
 
 
 ## Screenshots
-![](https://github.com/MarkoVitkovic/csh-sizeAddDeduct/blob/master/prva.jpg)
+![](https://github.com/MarkoVitkovic/csh-undo-redo_implementation/blob/master/gui.png)
 
 ## Technologies
 * [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
@@ -41,34 +41,15 @@ To learn C#, check out the [C# docs](https://docs.microsoft.com/en-us/dotnet/csh
 
 ## Code Examples
 Code:</br>
-`List<double> operandi = new List<double>();`</br>
-			`List<char> operatori = new List<char>();`</br>
-			`List<int> duzine = new List<int>();`</br>
-			`int uku=0;`</br>
-			`string unos , mj_fin;`</br>
-			`double cm, mm, m, km;`</br>
-			`Console.WriteLine("Please enter sizes wich you want to add(deduct).\n");`</br>
-			`unos = Console.ReadLine();`</br>
-			`char[] spearator = { '+', '-' };`</br>
-			`String[] strlist = unos.Split(spearator, StringSplitOptions.RemoveEmptyEntries);`</br>
-			`foreach (String s in strlist)`</br>
-			`{`</br>
-				`int size = s.Length;`</br>
-				`duzine.Add(size);`</br>
-				`if (s.TrimEnd(null).EndsWith("mm"))`</br>
-				`{`</br>
-				`	string a=s.Remove(s.LastIndexOf("m")-1,2);`</br>
-				`	mm = Double.Parse(a);`</br>
-				`	mm /= 1000;`</br>
-				`	operandi.Add(mm);`</br>
-				`	continue;`</br>
-				`}`</br>
+![](https://github.com/MarkoVitkovic/csh-undo-redo_implementation/blob/master/edit.jpg)
+![](https://github.com/MarkoVitkovic/csh-undo-redo_implementation/blob/master/undoredo.jpg)
+
+
 
 ## Features
 List of features ready and TODOs for future development
-* Add/deduct size
-* Output size in mm,m,cm,km (choose!)
-
+* Undo
+* Redo
 To-do list:
 * none
 
@@ -76,7 +57,7 @@ To-do list:
 Project is: _finished_
 
 ## Inspiration
-My most loved project! I did this as my final exam.
+I did this as my final exam.
 
 ## Contact
 Created by [Marko Vitkovic](https://github.com/MarkoVitkovic) - feel free to contact me!
