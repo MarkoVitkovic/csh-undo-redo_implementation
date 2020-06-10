@@ -15,7 +15,7 @@ namespace Notepad
 	{
 		FileOperation fileOperations;
 		EditOperation editOperations;
-		Timer timer;
+		
 
 		public Notepad()
 		{
@@ -24,9 +24,8 @@ namespace Notepad
 			editOperations = new EditOperation();
 			fileOperations.NewFile();
 			this.Text = fileOperations.Filename;
-			timer = new Timer();
-			timer.Tick += MyTimer;
-			timer.Interval = 100;
+			editOperations.AddUndoRedo(txtArea.Text);
+
 		}
 
 		private void newFileMenu_Click(object sender, EventArgs e)
@@ -84,7 +83,7 @@ namespace Notepad
 			fileOperations.IsSaved = false;
 			if (editOperations.TxtAreaTextChangeRequired)
 			{
-				timer.Start();
+				editOperations.AddUndoRedo(txtArea.Text);
 			}
 			else
 			{
@@ -148,13 +147,6 @@ namespace Notepad
 		{
 			//remove selected text, remove(start, end)
 			txtArea.Text = txtArea.Text.Remove(txtArea.SelectionStart, txtArea.SelectionLength);
-		}
-
-		private void MyTimer(object sender, EventArgs e)
-		{
-			timer.Stop();
-			editOperations.AddUndoRedo(txtArea.Text);
-			UpdateTextBox();
 		}
 
 		private void undoEditMenu_Click(object sender, EventArgs e)
