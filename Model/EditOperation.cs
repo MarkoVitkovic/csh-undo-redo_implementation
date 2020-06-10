@@ -45,6 +45,8 @@ namespace Model
 
 
 		private UndoRedoOperation data;
+		//check if is text is cchangeing if is true, we call method AddUndoRedo, need this, without this undo/redo dosent work
+	
 		private bool txtAreaTextChangeRequired = true;
 
 		public bool TxtAreaTextChangeRequired { get => txtAreaTextChangeRequired; set => txtAreaTextChangeRequired = value; }
