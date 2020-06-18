@@ -43,7 +43,7 @@
 			this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.txtArea = new TextChange();
+			this.textBox = new TextChange();
 			this.redoEditMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -186,13 +186,13 @@
 			// 
 			// txtArea
 			// 
-			this.txtArea.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.txtArea.Location = new System.Drawing.Point(0, 24);
-			this.txtArea.Name = "txtArea";
-			this.txtArea.Size = new System.Drawing.Size(800, 426);
-			this.txtArea.TabIndex = 2;
-			this.txtArea.Text = "";
-			this.txtArea.TextChanged += new System.EventHandler(this.txtArea_TextChanged);
+			this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox.Location = new System.Drawing.Point(0, 24);
+			this.textBox.Name = "txtArea";
+			this.textBox.Size = new System.Drawing.Size(800, 426);
+			this.textBox.TabIndex = 2;
+			this.textBox.Text = "";
+			this.textBox.TextChanged += new System.EventHandler(this.txtArea_TextChanged);
 			// 
 			// redoEditMenu
 			// 
@@ -208,7 +208,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.txtArea);
+			this.Controls.Add(this.textBox);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "Notepad";
@@ -230,7 +230,7 @@
 		private System.Windows.Forms.ToolStripMenuItem editMenu;
 		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-		private TextChange txtArea;
+		private TextChange textBox;
 		private System.Windows.Forms.ToolStripMenuItem undoEditMenu;
 		private System.Windows.Forms.ToolStripMenuItem cutEditMenu;
 		private System.Windows.Forms.ToolStripMenuItem copyEditMenu;

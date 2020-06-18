@@ -14,20 +14,20 @@ namespace Model
 			data = new UndoRedoOperation();
 		}
 		
-		public string UndoClicked()
+		public string CallUndo()
 		{
 			//no require change of text area so it is false, and call undo method on data
 			return data.Undo();
 		}
 
-		public string RedoClicked()
+		public string CallRedo()
 		{
 			return data.Redo();
 		}
 		//call undoredooperation function on data wich we init in constructor
-		public void AddUndoRedo(string i)
+		public void AddUndo(string i)
 		{
-			data.AddItem(i);
+			data.AddToUndo(i);
 		}
 		//call Can undo on data, wich is implemented in UndoRedoOperation
 		public bool CanUndo()
@@ -38,6 +38,10 @@ namespace Model
 		public bool CanRedo()
 		{
 			return data.CanRedo();
+		}
+		public void ClearRedo()
+		{
+			data.ClearRedo();
 		}
 
 

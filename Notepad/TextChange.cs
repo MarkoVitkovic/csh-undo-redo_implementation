@@ -9,15 +9,17 @@ namespace Notepad
 {
 	public class TextChange : RichTextBox
 	{
-		public override void txtArea_TextChanged(object sender, EventArgs e)
+		protected override void OnTextChanged(EventArgs e)
 		{
-			if (enableTextChangeEvent)
+			if (enableTextChangeEvent == false)
 				return;
-			base.txtArea_TextChanged();
+			base.OnTextChanged(e);
 		}
-		private void SetText()
+		public void SetText(string text)
 		{
 			enableTextChangeEvent = false;
+			Text = text;
+			enableTextChangeEvent = true;
 		}
 		private bool enableTextChangeEvent = true;
 	}

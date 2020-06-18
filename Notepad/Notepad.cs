@@ -24,7 +24,7 @@ namespace Notepad
 			editOperations = new EditOperation();
 			fileOperations.NewFile();
 			this.Text = fileOperations.Filename;
-			editOperations.AddUndoRedo(txtArea.Text);
+			editOperations.AddUndo(textBox.Text);
 
 		}
 
@@ -34,8 +34,8 @@ namespace Notepad
 			if (fileOperations.IsSaved)
 			{
 				fileOperations.NewFile();
-				txtArea.Text = "";
-				UpdateTextBox();
+				textBox.Text = "";
+				UpdateFormTitle();
 			}
 			else
 			{
@@ -50,28 +50,28 @@ namespace Notepad
 						newFileSave.Filter = "Text(*.txt) | *.txt"; //format, txt file
 						if (newFileSave.ShowDialog() == DialogResult.OK)
 						{
-							fileOperations.SaveFile(newFileSave.FileName, txtArea.Lines);
-							UpdateTextBox();
+							fileOperations.SaveFile(newFileSave.FileName, textBox.Lines);
+							UpdateFormTitle();
 						}
 						else
 						{
-							fileOperations.SaveFile(fileOperations.Filename, txtArea.Lines);
-							UpdateTextBox();
+							fileOperations.SaveFile(fileOperations.Filename, textBox.Lines);
+							UpdateFormTitle();
 						}
 					}
 				}
 				//open new file without saving
 				else if (result == DialogResult.No)
 				{
-					txtArea.Text = "";
+					textBox.Text = "";
 					fileOperations.NewFile();
-					UpdateTextBox();
+					UpdateFormTitle();
 				}
 			}
 
 		}
 		
-		private void UpdateTextBox()
+		private void UpdateFormTitle()
 		{
 			this.Text = !fileOperations.IsSaved ? fileOperations.Filename + "*" : fileOperations.Filename;
 			undoEditMenu.Enabled = editOperations.CanUndo() ? true : false;
@@ -81,8 +81,9 @@ namespace Notepad
 		private void txtArea_TextChanged(object sender, EventArgs e)
 		{
 			fileOperations.IsSaved = false;
-			editOperations.AddUndoRedo(txtArea.Text);
-			UpdateTextBox();
+			editOperations.AddUndo(textBox.Text);
+			editOperations.ClearRedo();
+			UpdateFormTitle();
 		}
 
 		private void openFileMenu_Click(object sender, EventArgs e)
@@ -94,8 +95,8 @@ namespace Notepad
 			if(openFile.ShowDialog() == DialogResult.OK)
 			{
 				
-				txtArea.Text = fileOperations.OpenFile(openFile.FileName);
-				UpdateTextBox();
+				textBox.Text = fileOperations.OpenFile(openFile.FileName);
+				UpdateFormTitle();
 			}
 		}
 
@@ -106,8 +107,8 @@ namespace Notepad
 		//with this we enable items in edit only if is there on txtarea some text or in clipboard 
 		private void editMenu_Click(object sender, EventArgs e)
 		{
-			cutEditMenu.Enabled = txtArea.SelectedText.Length > 0 ? true : false;
-			copyEditMenu.Enabled = txtArea.SelectedText.Length > 0 ? true : false;
+			cutEditMenu.Enabled = textBox.SelectedText.Length > 0 ? true : false;
+			copyEditMenu.Enabled = textBox.SelectedText.Length > 0 ? true : false;
 			pasteEditMenu.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Text);
 		}
 
@@ -118,13 +119,13 @@ namespace Notepad
 	
 		private void cutEditMenu_Click(object sender, EventArgs e)
 		{
-			txtArea.Cut();
+			textBox.Cut();
 			pasteEditMenu.Enabled = true;
 		}
 
 		private void copyEditMenu_Click(object sender, EventArgs e)
 		{
-			txtArea.Copy();
+			textBox.Copy();
 			pasteEditMenu.Enabled = true;
 		}
 
@@ -132,26 +133,26 @@ namespace Notepad
 		{
 			//check if there any txt in clipboard
 			if(Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
-				txtArea.Paste();
+				textBox.Paste();
 
 		}
 
 		private void deleteEditMenu_Click(object sender, EventArgs e)
 		{
 			//remove selected text, remove(start, end)
-			txtArea.Text = txtArea.Text.Remove(txtArea.SelectionStart, txtArea.SelectionLength);
+			textBox.Text = textBox.Text.Remove(textBox.SelectionStart, textBox.SelectionLength);
 		}
 
 		private void undoEditMenu_Click(object sender, EventArgs e)
 		{
-			txtArea.Text = editOperations.UndoClicked();
-			UpdateTextBox();
+			textBox.SetText(editOperations.CallUndo());
+			UpdateFormTitle();
 		}
 
 		private void redoEditMenu_Click(object sender, EventArgs e)
 		{
-			txtArea.Text = editOperations.RedoClicked();
-			UpdateTextBox();
+			textBox.SetText(editOperations.CallRedo());
+			UpdateFormTitle();
 		}
 	}
 }

@@ -14,14 +14,13 @@ namespace Model
 			UndoStack = new Stack<string>();
 			RedoStack = new Stack<string>();
 		}
-		//clear both stacks
-		public void Clear()
-		{
-			UndoStack.Clear();
+		//clear redo stack
+		public void ClearRedo()
+		{ 
 			RedoStack.Clear();
 		}
 		//add items in undo stack
-		public void AddItem(string i)
+		public void AddToUndo(string i)
 		{
 			UndoStack.Push(i);
 		}
