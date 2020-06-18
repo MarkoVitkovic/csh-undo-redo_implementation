@@ -81,14 +81,7 @@ namespace Notepad
 		private void txtArea_TextChanged(object sender, EventArgs e)
 		{
 			fileOperations.IsSaved = false;
-			if (editOperations.TxtAreaTextChangeRequired)
-			{
-				editOperations.AddUndoRedo(txtArea.Text);
-			}
-			else
-			{
-				editOperations.TxtAreaTextChangeRequired = false;
-			}
+			editOperations.AddUndoRedo(txtArea.Text);
 			UpdateTextBox();
 		}
 

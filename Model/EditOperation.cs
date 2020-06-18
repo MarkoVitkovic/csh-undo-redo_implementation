@@ -17,13 +17,11 @@ namespace Model
 		public string UndoClicked()
 		{
 			//no require change of text area so it is false, and call undo method on data
-			TxtAreaTextChangeRequired = false;
 			return data.Undo();
 		}
 
 		public string RedoClicked()
 		{
-			TxtAreaTextChangeRequired = false;
 			return data.Redo();
 		}
 		//call undoredooperation function on data wich we init in constructor
@@ -47,8 +45,5 @@ namespace Model
 		private UndoRedoOperation data;
 		//check if is text is cchangeing if is true, we call method AddUndoRedo, need this, without this undo/redo dosent work
 	
-		private bool txtAreaTextChangeRequired = true;
-
-		public bool TxtAreaTextChangeRequired { get => txtAreaTextChangeRequired; set => txtAreaTextChangeRequired = value; }
 	}
 }

@@ -43,7 +43,7 @@
 			this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.txtArea = new System.Windows.Forms.RichTextBox();
+			this.txtArea = new TextChange();
 			this.redoEditMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
@@ -230,7 +230,7 @@
 		private System.Windows.Forms.ToolStripMenuItem editMenu;
 		private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-		private System.Windows.Forms.RichTextBox txtArea;
+		private TextChange txtArea;
 		private System.Windows.Forms.ToolStripMenuItem undoEditMenu;
 		private System.Windows.Forms.ToolStripMenuItem cutEditMenu;
 		private System.Windows.Forms.ToolStripMenuItem copyEditMenu;
